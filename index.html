@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      :root {
+        --todoColor: rgb(66, 64, 65);
+        --mainBGColor: rgb(31, 97, 203);
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      body {
+        background-color: var(--mainBGColor);
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .container {
+        width: 500px;
+        background-color: #fff;
+        height: 500px;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+      }
+      #todoForm {
+        width: 100%;
+        display: flex;
+
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 25px;
+      }
+      .todoInput {
+        width: 70%;
+        padding: 10px;
+        border: 2px solid rgb(119, 145, 166);
+        border-radius: 5px;
+        outline: none;
+        color: var(--todoColor);
+      }
+      .searchInput{
+        width: 100%;
+        padding: 10px;
+        border: 2px solid rgb(119, 145, 166);
+        border-radius: 5px;
+        outline: none;
+        color: var(--todoColor);
+      }
+      .todoBtn {
+        border: none;
+        background-color: var(--mainBGColor);
+        border-radius: 5px;
+        width: 25%;
+        padding: 10px 25px;
+        color: #fff;
+        font-size: 15px;
+        cursor: pointer;
+      }
+      .todoListArea {
+        margin-top: 25px;
+        width: 100%;
+      }
+      .todoList {
+        padding: 0;
+      }
+      .todo {
+        background-color: rgb(196, 225, 229);
+        list-style-type: none;
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        color: var(--todoColor);
+        position: relative;
+      }
+      .todo.over {
+        opacity: 0.5;
+      }
+      .deleteIcon {
+        padding: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        margin-right: 6px;
+      }
+      .checkBtn {
+        width: 25px;
+        height: 25px;
+        background-color: var(--mainBGColor);
+      }
+      .icons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 10px;
+      }
+      .todo::before {
+        font-family: "Material Icons";
+        content: "drag_indicator";
+        margin-right: 7px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      .checked{
+        text-decoration: line-through;
+      }
+      .displayNone{
+        display: none;
+      }
+      .clearAllTodos{
+        align-self: flex-end;
+        margin-top: 20px;
+      }
+      .clearAllTodosBtn{
+        border: none;
+        background-color: var(--mainBGColor);
+        border-radius: 5px;
+        padding: 10px 25px;
+        color: #fff;
+        font-size: 15px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body ondrop="onItemDragDrop('1')">
+    <div class="container">
+      <div class="addTodoArea">
+        <form id="todoForm">
+          <input type="text" class="todoInput" placeholder="Bir Todo Giriniz" />
+          <button class="todoBtn">Ekle</button>
+        </form>
+        <input type="search" class="searchInput" placeholder="Bir Todo Arayın">
+      </div>
+      <div class="todoListArea">
+        <ul class="todoList">
+          <!-- js ile dinamik basılacak -->
+        </ul>
+      </div>
+      <div class="clearAllTodos">
+        <button class="clearAllTodosBtn">Tüm Todoları Sil</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
